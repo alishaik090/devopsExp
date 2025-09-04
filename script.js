@@ -1,19 +1,9 @@
-const form = document.getElementById("registrationForm");
-const popup = document.getElementById("popup");
-const closePopup = document.getElementById("closePopup");
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent page refresh
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
-  popup.style.display = "flex";
-  form.reset();
-});
+  // Hide the form
+  document.getElementById("registrationForm").style.display = "none";
 
-closePopup.addEventListener("click", () => {
-  popup.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-  if (e.target === popup) {
-    popup.style.display = "none";
-  }
+  // Show success message
+  document.getElementById("successMessage").classList.remove("hidden");
 });
