@@ -1,59 +1,74 @@
-const form = document.getElementById("registrationForm");
-const popup = document.getElementById("popup");
-const popupDetails = document.getElementById("popupDetails");
-const closePopup = document.getElementById("closePopup");
-const downloadPDF = document.getElementById("downloadPDF");
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault(); // prevent reload
+.form-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-  const readerPhoto = new FileReader();
-  const readerSignature = new FileReader();
+h2 {
+  text-align: center;
+}
 
-  const photoFile = document.getElementById("photo").files[0];
-  const signatureFile = document.getElementById("signature").files[0];
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
 
-  readerPhoto.onload = function(e1) {
-    readerSignature.onload = function(e2) {
-      const details = `
-        <p><b>First Name:</b> ${document.getElementById("firstName").value}</p>
-        <p><b>Last Name:</b> ${document.getElementById("lastName").value}</p>
-        <p><b>Father's Name:</b> ${document.getElementById("fatherName").value}</p>
-        <p><b>Mother's Name:</b> ${document.getElementById("motherName").value}</p>
-        <p><b>Date of Birth:</b> ${document.getElementById("dob").value}</p>
-        <p><b>Gender:</b> ${document.getElementById("gender").value}</p>
-        <p><b>Address:</b> ${document.getElementById("address").value}</p>
-        <p><b>Qualification:</b> ${document.getElementById("qualification").value}</p>
-        <p><b>Mobile Number:</b> ${document.getElementById("mobile").value}</p>
-        <p><b>Email:</b> ${document.getElementById("email").value}</p>
-        <p><b>Password:</b> ${document.getElementById("password").value}</p>
-        <div class="photo-sign">
-          <div>
-            <p><b>Passport Photo:</b></p>
-            <img src="${e1.target.result}">
-          </div>
-          <div>
-            <p><b>Signature:</b></p>
-            <img src="${e2.target.result}">
-          </div>
-        </div>
-      `;
+.row label {
+  width: 30%;
+  font-weight: bold;
+}
 
-      popupDetails.innerHTML = details;
-      popup.style.display = "flex";
-    };
-    readerSignature.readAsDataURL(signatureFile);
-  };
-  readerPhoto.readAsDataURL(photoFile);
-});
+.row input, 
+.row select, 
+.row textarea {
+  width: 65%;
+  padding: 6px;
+}
 
-// Close popup
-closePopup.addEventListener("click", () => {
-  popup.style.display = "none";
-});
+.upload-row {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+}
 
-// Download as PDF
-downloadPDF.addEventListener("click", () => {
-  const element = document.getElementById("popupDetails");
-  html2pdf().from(element).save("Registration_Details.pdf");
-});
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.btn.green { background: #28a745; }
+.btn.red { background: #dc3545; }
+
+.center {
+  text-align: center;
+}
+
+.success-msg {
+  text-align: center;
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+  display: none; /* hidden by default */
+}
