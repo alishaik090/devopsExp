@@ -1,20 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("registrationForm");
-  const successMsg = document.getElementById("successMsg");
+const form = document.getElementById("registrationForm");
+const popup = document.getElementById("popup");
+const closePopup = document.getElementById("closePopup");
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // stop actual form submission/refresh
-    
-    // Show success message
-    successMsg.textContent = "✅ Form submitted successfully!";
-    successMsg.style.display = "block";
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  popup.style.display = "flex";
+  form.reset();
+});
 
-    // Reset the form after showing message
-    form.reset();
+closePopup.addEventListener("click", () => {
+  popup.style.display = "none";
+});
 
-    // Hide the message after 3 seconds
-    setTimeout(() => {
-      successMsg.style.display = "none";
-    }, 3000);
-  });
+window.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
 });
