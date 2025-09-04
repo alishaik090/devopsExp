@@ -56,4 +56,13 @@ closePopup.addEventListener("click", () => {
 downloadPDF.addEventListener("click", () => {
   const element = document.getElementById("popupDetails");
   html2pdf().from(element).save("Registration_Details.pdf");
+
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("registrationForm");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // stop actual form submission/refresh
+    alert("Form submitted successfully!");
+  });
 });
