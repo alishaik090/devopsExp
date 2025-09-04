@@ -5,7 +5,7 @@ const closePopup = document.getElementById("closePopup");
 const downloadPDF = document.getElementById("downloadPDF");
 
 form.addEventListener("submit", function(e) {
-  e.preventDefault();
+  e.preventDefault(); // prevent reload
 
   const readerPhoto = new FileReader();
   const readerSignature = new FileReader();
