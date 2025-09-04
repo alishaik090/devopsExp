@@ -4,75 +4,47 @@
   <meta charset="UTF-8">
   <title>Student Registration Form</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="form-container">
+  <div class="container">
     <h2>Student Registration Form</h2>
     <form id="registrationForm">
-      <div class="row">
-        <label>First Name:</label>
-        <input type="text" id="firstName" required>
-        <label>Last Name:</label>
-        <input type="text" id="lastName" required>
-      </div>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
 
-      <div class="row">
-        <label>Father's Name:</label>
-        <input type="text" id="fatherName" required>
-        <label>Mother's Name:</label>
-        <input type="text" id="motherName" required>
-      </div>
+      <label for="father">Father's Name:</label>
+      <input type="text" id="father" name="father" required>
 
-      <div class="row">
-        <label>Date of Birth:</label>
-        <input type="date" id="dob" required>
-        <label>Gender:</label>
-        <select id="gender" required>
-          <option value="">Select</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
+      <label for="mother">Mother's Name:</label>
+      <input type="text" id="mother" name="mother" required>
 
-      <div class="row">
-        <label>Address:</label>
-        <textarea id="address" required></textarea>
-      </div>
+      <label for="qualification">Qualification:</label>
+      <input type="text" id="qualification" name="qualification" required>
 
-      <div class="row">
-        <label>Qualification:</label>
-        <input type="text" id="qualification" required>
-        <label>Mobile Number:</label>
-        <input type="tel" id="mobile" pattern="[0-9]{10}" required>
-      </div>
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
 
-      <div class="row">
-        <label>Email:</label>
-        <input type="email" id="email" required>
-        <label>Password:</label>
-        <input type="password" id="password" required>
-      </div>
+      <label for="number">Phone Number:</label>
+      <input type="tel" id="number" name="number" pattern="[0-9]{10}" required>
 
-      <!-- Upload Row -->
-      <div class="upload-row">
-        <div class="upload-box">
-          <label>Passport Photo:</label>
-          <input type="file" id="photo" accept="image/*" required>
-        </div>
-        <div class="upload-box">
-          <label>Signature:</label>
-          <input type="file" id="signature" accept="image/*" required>
-        </div>
-      </div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
 
-      <div class="row center">
-        <button type="submit" class="btn green">Submit</button>
-        <button type="reset" class="btn red">Reset</button>
-      </div>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="passport">Passport Size Photo:</label>
+      <input type="file" id="passport" name="passport" accept="image/*" required>
+
+      <label for="signature">Signature Photo:</label>
+      <input type="file" id="signature" name="signature" accept="image/*" required>
+
+      <button type="submit">Submit</button>
     </form>
-    <p id="successMsg" class="success-msg"></p>
+
+    <p id="successMessage" class="hidden">✅ Registration Successful!</p>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
