@@ -1,53 +1,49 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f7f7f7;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 30px;
-  bgcolor: blue;
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+  margin: 0;
+  padding: 20px;
 }
 
 .form-container {
   background: #fff;
-  padding: 25px 30px;
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  width: 700px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
 }
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  gap: 20px;
   margin-bottom: 15px;
-  align-items: center;
 }
 
-label {
+.row label {
   flex: 1;
-  font-weight: bold;
-  margin-right: 10px;
-  min-width: 120px;
 }
 
-input, select, textarea {
+.row input, .row select, .row textarea {
   flex: 2;
-  padding: 8px;
+  padding: 6px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  margin-right: 10px;
 }
 
-textarea {
-  width: 100%;
-  resize: none;
+.upload-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.upload-box {
+  flex: 1;
+  margin-right: 15px;
 }
 
 .center {
@@ -55,50 +51,23 @@ textarea {
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 8px 16px;
   border: none;
   border-radius: 6px;
-  font-weight: bold;
-  color: white;
-  margin: 10px;
   cursor: pointer;
+  margin: 5px;
 }
 
-.green { background: #28a745; }
-.red { background: #dc3545; }
-
-.btn:hover { opacity: 0.9; }
-
-/* Upload Row Fix */
-.upload-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.upload-box {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.upload-box label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.upload-box input[type="file"] {
-  width: auto;
-  padding: 4px;
-  font-size: 14px;
-}
+.green { background: #28a745; color: white; }
+.red { background: #dc3545; color: white; }
+.blue { background: #007bff; color: white; }
 
 /* Popup */
 .popup {
   display: none;
   position: fixed;
-  top: 0; left: 0;
+  z-index: 1000;
+  left: 0; top: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.6);
   justify-content: center;
@@ -109,40 +78,27 @@ textarea {
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
   position: relative;
 }
 
-#closePopup {
+.close {
   position: absolute;
-  top: 10px; right: 20px;
+  top: 10px; right: 15px;
   font-size: 24px;
   cursor: pointer;
 }
 
-#popupDetails {
-  margin-top: 20px;
-  line-height: 1.8;
-}
-
-#popupDetails p {
-  margin: 5px 0;
-  font-size: 15px;
-}
-
 .photo-sign {
   display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
   gap: 20px;
+  margin-top: 10px;
 }
 
 .photo-sign img {
   max-width: 150px;
-  max-height: 100px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 6px;
-
 }
